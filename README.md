@@ -53,22 +53,8 @@
 ### Client
 - Store client's data
 - Client can have dept
-- Two account type ( 1 or 2 `Type_de_compte`)
 
-
-> `Code_Societe`: is always `1` (it can be the indentifier of the current company)
-****
-> `Code_Client`: Non-linear
-
-> `Cle_Client`:
-
-> `Nom`: Format(`CLIENT XXXXX`)
-
-> `Secteur_Commercial_Libelle`: Linked to `Secteur_Commercial` 
-
-> `Secteur_Commercial`: Linked to `Secteur_Commercial_Libelle` 
-
-> `Situation_Client`: ENUM (Normal, A surveiller, Fermé, Bloqué sauf création commande, Bloqué sauf comptant, Bloqué)
+> `?`: Seems to match with `Representant`.`Code_representant`
 
 
 ### Representant
@@ -158,7 +144,11 @@ Colonne "Code_Activite" : A quoi correspond cette colonne ?
 
 On a 349908 entres au total.
 IdFaitVente est correct et s'incremente correctement.
-Code_Societe a une unique valeur "5A1"
+Code_Societe a une unique valeur "5A1".
+Cle_temps Divise comme YearMonthDay ex: 20220101
+Cle_Dpt_Vente a une unique valeur "1"
+Colonne ?? -> ressemble a un code client, doit faire le lien avec une autre table
+
 
 
 ### A faire-6

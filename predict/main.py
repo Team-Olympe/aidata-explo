@@ -18,7 +18,7 @@ def get_connection():
 
 def __main__(): 
   con = get_connection()
-  df = pd.read_sql_query("SELECT CONCAT(\"01-\", DATE_FORMAT(Cle_Temps,\"\%m-%Y\")) as ds,COUNT(*)AS y FROM Ventes GROUP BY ds ORDER BY ds ASC;", con)
+  df = pd.read_sql_query("SELECT CONCAT(\"01-\", DATE_FORMAT(Cle_Temps,\"%m-%Y\")) as ds,COUNT(*)AS y FROM Ventes GROUP BY ds ORDER BY ds ASC;", con)
   m = Prophet()
   m.fit(df)
   future = m.make_future_dataframe(periods=365)
