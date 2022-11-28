@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "bob"
+version = "0.1.0"
+description = ""
+authors = ["Zao Soula <contact@zaosoula.fr>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = "^1.5.1"
+pandas-datareader = "^0.10.0"
+seaborn = "^0.12.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

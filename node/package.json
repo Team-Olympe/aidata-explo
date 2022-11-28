@@ -1,0 +1,13 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "mariadb": "^3.0.2",
+    "nodemon": "^2.0.20",
+    "sequelize": "^6.25.5",
+    "timeseries-analysis": "git+https://github.com/26medias/timeseries-analysis.git"
+  }
+}
