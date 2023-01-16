@@ -4,13 +4,10 @@ from sklearn.linear_model import LinearRegression
 import datetime
 import matplotlib.pyplot as plt
 
-
-# Step 1: Connect to MySQL server
 print("Step 1: Connect to MySQL server")
 cnx = mysql.connector.connect(user='288967', password='stur0MAU-heew7seeg',
                               host='mysql-explo-data.alwaysdata.net', database='explo-data_1')
 
-# Step 2: Query data from MySQL
 print("Step 2: Query data from MySQL")
 
 query = '''
@@ -20,21 +17,17 @@ WHERE DATE(Cle_Temps) < DATE("2018-12-01")
 GROUP BY YEAR(date), MONTH(date) 
 '''
 df = pd.read_sql(query, cnx)
+cnx.close()
 
-# Step 3: Prepare data for modeling
 print("Step 3: Prepare data for modeling")
 df['date']=df['date'].map(datetime.datetime.toordinal) # convert date to datetime object
 X = df[['date']] # features
 Y = df['sales'] # target variable
 
-# Step 4: Clean and preprocess data
 print("Step 4: Clean and preprocess data")
+# To-do: fill missing data points
 
-# (omitted for brevity)
-
-# Step 5: Train model
 print("Step 5: Train model")
-
 model = LinearRegression()
 model.fit(X, Y)
 
@@ -50,8 +43,6 @@ for i in range(len(df['date']) + 6):
     pX.append(datetime.datetime.toordinal(date))
     pY.append(prediction)
     date += datetime.timedelta(weeks=4)
-# Step 7: Close connection to MySQL
-cnx.close()
 
 # Plot the time series
 plt.plot(X.applymap(datetime.date.fromordinal), Y,  label = "real data")
